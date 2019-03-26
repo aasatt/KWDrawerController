@@ -43,7 +43,7 @@ open class DrawerController: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Define
     
     static let OverflowPercentage: Float = 1.06
-    static let GestureArea: Float = 40.0
+    static let GestureArea: CGFloat = UIScreen.main.bounds.width
     
     
     // MARK: - Property
@@ -1067,13 +1067,13 @@ open class DrawerController: UIViewController, UIGestureRecognizerDelegate {
         /// Gesture Area
         if drawerSide == .none {
             let leftRect = CGRect(
-                x: CGFloat(Float(view.frame.minX) - DrawerController.GestureArea),
+                x: CGFloat(view.frame.minX - DrawerController.GestureArea),
                 y: view.frame.minY,
                 width: CGFloat(DrawerController.GestureArea * 2.0),
                 height: view.frame.height
             )
             let rightRect = CGRect(
-                x: CGFloat(Float(view.frame.maxX) - DrawerController.GestureArea),
+                x: CGFloat(view.frame.maxX - DrawerController.GestureArea),
                 y: view.frame.origin.y,
                 width: CGFloat(DrawerController.GestureArea * 2.0),
                 height: view.frame.height
